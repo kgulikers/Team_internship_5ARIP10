@@ -15,7 +15,7 @@ import gymnasium as gym
 ########################################
 
 from .navigation import OriginOneNavigationRLEnvCfg, OriginOneNavigationPlayEnvCfg
-import avulab_tasks.navigation.config.agents.mushr as originone_nav_agents
+import avulab_tasks.navigation.config.agents.origin_one as originone_nav_agents
 
 gym.register(
     id="IsaacLab-OriginOneNavigation",

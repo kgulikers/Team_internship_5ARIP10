@@ -14,5 +14,5 @@ AVULAB_ASSETS_METADATA = toml.load(os.path.join(AVULAB_ASSETS_EXT_DIR, "config",
 # Configure the module-level variables
 __version__ = AVULAB_ASSETS_METADATA["package"]["version"]
 
-#from .mushr import *
+#from .origin_one import *
 from .origin_one_robot_cfg import OriginRobotCfg #
