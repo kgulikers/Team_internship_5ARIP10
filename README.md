@@ -19,6 +19,7 @@ Environments, assets, workflow for open-source mobile robotics, integrated with 
   - [IsaacSim + IsaacLab](#isaacsim--isaaclab)
   - [Create environment](#create-environment)
   - [Clone repository](#clone-repository)
+  - [Pull issue IsaacLab](#pull-issue-isaaclab)
 - [Quickstart](#quickstart)
 - [Weights and Biases](#weights-and-biases)
 - [References](#references)
@@ -82,7 +83,30 @@ conda activate env_isaaclab
 ```bash
 # Activate the conda environment
 conda activate env_isaaclab
+# Clone the repository and install the different avulab python packages
 git clone git@github.com:kgulikers/Team_internship_5ARIP10.git
+cd Team_internship_5ARIP10/source
+pip install -e avulab
+pip install -e avulab_tasks
+pip install -e avulab_assets
+pip install -e avulab_rl
+```
+
+### IsaacLab RayCaster pull
+
+Since this project uses the RayCaster sensor, you need to apply an additional pull from GitHub. This pull adds dynamic and multi-mesh support to <mesh_prim_paths> for the RayCaster sensor. See 
+[pull request #1886](https://github.com/isaac-sim/IsaacLab/pull/1886)
+
+```bash
+# Go to the IsaacLab folder
+cd /path/to/IsaacLab
+# Fetch the PR into a new branch
+git remote add upstream https://github.com/isaac-sim/IsaacLab.git \ || echo "upstream already exists"
+git fetch upstream pull/1886/head:pr-1886-raycaster
+git checkout pr-1886-raycaster
+# Merge into the main branch
+git checkout main
+git merge pr-1886-raycaster
 ```
 
 ## Quickstart
