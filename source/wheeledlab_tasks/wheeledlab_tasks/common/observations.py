@@ -53,18 +53,10 @@ def lidar_distances(env, sensor_cfg: SceneEntityCfg = SceneEntityCfg("ray_caster
         return pooled  
 
 
-    front = pool_region(-60, 60, 10)          # 90° front → 10 bins
-    #print('front:',front)
-    #rear = pool_region(150, 180, 3)          # rear-right (3 bins total)
-    #rear = torch.cat([rear, pool_region(-180, -150, 3)], dim=-1)  # rear-left (3 bins total)
-    #print('rear:', rear)
-    left = pool_region(60, 120, 3)           # left side → 2 bins
-    #print('left',left)
-    right = pool_region(-120, -60, 3)        # right side → 2 bins   
-    #print('right',right)
-    #time.sleep(1)    
+    front = pool_region(-60, 60, 10)         # 120° front → 10 bins
+    left = pool_region(60, 120, 3)           # left side → 3 bins
+    right = pool_region(-120, -60, 3)        # right side → 3 bins   
 
-    #return torch.cat([front, left, right, rear], dim=-1)  
     return torch.cat([front, left, right], dim=-1)  
 
 
@@ -116,7 +108,7 @@ class ObsCfg:
 
         to_goal_vector_term = ObsTerm(
             func=to_goal_vector,
-            clip=(-torch.pi, torch.pi),
+            clip=(-torch.inf, torch.inf),
             noise=Gnoise(std = 0.6),
         )
 
