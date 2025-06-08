@@ -38,7 +38,6 @@ class DifferentialDriveAction(ActionTerm):
 
     def process_actions(self, actions: torch.Tensor):
         self._raw_actions[:] = actions
-        print("actions:", actions)
 
         if self._bounding_strategy == "clip":
             self._processed_actions = torch.clip(actions, -1.0, 1.0) * self._scale
@@ -53,8 +52,6 @@ class DifferentialDriveAction(ActionTerm):
     def apply_actions(self):
         v = self._processed_actions[:, 0]  # linear velocity
         w = self._processed_actions[:, 1]  # angular velocity
-        print("linear velocity:", v)
-        print("angular:", w)
 
         # Convert to individual wheel velocities
         v_l = (v - 0.5 * self.wheel_base * w) / self.wheel_radius

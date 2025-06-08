@@ -25,7 +25,7 @@ from isaaclab_tasks.utils import get_checkpoint_path
 from isaaclab_rl.rsl_rl import RslRlVecEnvWrapper
 
 from avulab_rl.configs import RunConfig
-from avulab_rl import avulab_RL_LOGS_DIR
+from avulab_rl import AVULAB_RL_LOGS_DIR
 
 from avulab_rl.utils import (
     OnPolicyRunner as ModifiedRslRunner,

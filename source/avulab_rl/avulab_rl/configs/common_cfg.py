@@ -5,7 +5,7 @@ from typing import Dict, Any, Optional
 
 from isaaclab.utils import configclass
 
-from avulab_rl import avulab_RL_LOGS_DIR
+from avulab_rl import AVULAB_RL_LOGS_DIR
 
 
 @configclass
@@ -13,7 +13,7 @@ class LogConfig:
     '''
     Configuration for logging during training
     '''
-    logs_dir: str = avulab_RL_LOGS_DIR              # Directory for creating logs (if log_dir is not provided)
+    logs_dir: str = AVULAB_RL_LOGS_DIR              # Directory for creating logs (if log_dir is not provided)
     no_log: bool = False                                # Disable logging
     log_every: int = 1                                 # Log every n updates
     video: bool = True                                  # Record videos during training
