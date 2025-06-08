@@ -1,3 +1,13 @@
+# SPDX-License-Identifier: BSD-3-Clause
+#
+# This file is part of the Avular Origin One project.
+#
+# Copyright (c) 2025–2027, Avulab Project Developers (5ARIP10).
+# All rights reserved.
+#
+# This file was created specifically for the Origin One platform.
+
+
 import torch
 import isaacsim.core.utils.prims as prim_utils
 import isaaclab.envs.mdp as mdp
