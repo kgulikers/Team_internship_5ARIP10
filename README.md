@@ -19,7 +19,7 @@ Environments, assets, workflow for open-source mobile robotics, integrated with 
   - [IsaacSim + IsaacLab](#isaacsim--isaaclab)
   - [Create environment](#create-environment)
   - [Clone repository](#clone-repository)
-  - [Pull issue IsaacLab](#pull-issue-isaaclab)
+  - [IsaacLab RayCaster pull](#isaaclab-raycaster-pull)
 - [Quickstart](#quickstart)
 - [Weights and Biases](#weights-and-biases)
 - [References](#references)
