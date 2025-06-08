@@ -1,3 +1,13 @@
+# SPDX-License-Identifier: BSD-3-Clause
+#
+# This file is part of the Avular Origin One project.
+#
+# Based on code from the WheeledLab project (https://github.com/NVlabs/wheeledlab)
+# Copyright (c) 2025–2027, The Wheeled Lab Project Developers.
+#
+# Modified by the Avulab Project Developers (5ARIP10), 2025–2025.
+# Modifications include: 
+
 from isaaclab.utils import configclass
 
 from dataclasses import MISSING
