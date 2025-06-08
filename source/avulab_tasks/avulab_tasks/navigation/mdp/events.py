@@ -1,3 +1,9 @@
+# SPDX-License-Identifier: BSD-3-Clause
+#
+# This file is part of the WheeledLab project (https://github.com/NVlabs/wheeledlab)
+# and is included here unmodified under the terms of the BSD-3-Clause license.
+
+
 import torch
 
 import isaaclab.utils.math as math_utils
