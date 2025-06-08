@@ -2,7 +2,7 @@
 #
 # This file is part of the Avular Origin One project.
 #
-# Copyright (c) 2025–2027, Avulab Project Developers (5ARIP10).
+# Copyright (c) 2025–2025, Avulab Project Developers (5ARIP10).
 # All rights reserved.
 #
 # This file was created specifically for the Origin One platform.
