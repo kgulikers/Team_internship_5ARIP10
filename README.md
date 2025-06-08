@@ -92,7 +92,7 @@ Training the Origin One can take some hours to achieve good results.
 To start training the Origin One to go from a starting positon to the final goal while avoiding obstacles, use the following command:
 
 ```bash
-python source/wheeledlab_rl/scripts/train_rl.py --headless -r RSS_NAV_CONFIG
+python source/avulab_rl/scripts/train_rl.py --headless -r RSS_NAV_CONFIG
 ```
 
 <img src="docs/media/navigation_environment.png" alt="fig2" />
@@ -120,7 +120,7 @@ To log the different parameters and video's, [Weights & Biases](https://wandb.ai
 ```
 @misc{2502.07380,
 Author = {Tyler Han and Preet Shah and Sidharth Rajagopal and Yanda Bao and Sanghun Jung and Sidharth Talia and Gabriel Guo and Bryan Xu and Bhaumik Mehta and Emma Romig and Rosario Scalise and Byron Boots},
-Title = {Demonstrating WheeledLab: Modern Sim2Real for Low-cost, Open-source Wheeled Robotics},
+Title = {Demonstrating avulab: Modern Sim2Real for Low-cost, Open-source Wheeled Robotics},
 Year = {2025},
 Eprint = {arXiv:2502.07380},
 }
