@@ -5,7 +5,7 @@
 from wheeledlab_rl.startup import startup
 import argparse
 parser = argparse.ArgumentParser(description="Train an RL Agent in WheeledLab.")
-parser.add_argument('-r', "--run-config-name", type=str, default="RSS_DRIFT_CONFIG", help="Run in headless mode.")
+parser.add_argument('-r', "--run-config-name", type=str, default="RSS_NAV_CONFIG", help="Run in headless mode.")
 simulation_app, args_cli = startup(parser=parser)
 #######################
 ###### END SETUP ######
@@ -137,17 +137,6 @@ def main(run_cfg: RunConfig): # TODO: Add SB3 config support
     env.seed(agent_cfg.seed)
     env.common_step_counter = train_cfg.set_env_step # For continuing curriculums
     runner.learn(num_learning_iterations=train_cfg.num_iterations)
-
-    #print("runner.alg.policy is a", type(runner.alg.policy))
-    #print("=== runner.alg.policy attributes ===")
-    #print(dir(runner.alg.policy))
-
-    #print("=== Actor model architecture ===")
-    #print(runner.alg.policy.actor)
-    #actor_model = runner.alg.policy.actor
-    #torch.save(actor_model, os.path.join(log_cfg.model_save_path, "full_actor_model.pt"))
-    #print("[INFO] Saved full actor model.")
-
 
     print("=== Actor model architecture ===")
     print(runner.alg.policy.actor)

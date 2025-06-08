@@ -31,15 +31,8 @@ class OnPolicyRunner(runners.OnPolicyRunner):
         self.ckpt_every = getattr(log_cfg, "checkpoint_every", 50)
         if not self.no_wandb:
             self.logger_type = "wandb"
-        # self.pbar = tqdm(total=self.cfg.get("rl_max_iterations", 0))
 
     def learn(self, num_learning_iterations, init_at_random_ep_len=False):
-                # quickly find out where env.step() is implemented:
-        import inspect
-        raw_env = self.env
-        while hasattr(raw_env, "env"):
-            raw_env = raw_env.env
-        print("→ Actual step() lives in:", inspect.getsourcefile(raw_env.step))
 
         # initialize writer
         if not self.no_log and self.logger_type == "wandb":
@@ -61,8 +54,6 @@ class OnPolicyRunner(runners.OnPolicyRunner):
         obs, critic_obs = obs.to(self.device), critic_obs.to(self.device)
         self.train_mode()  # switch to train mode (for dropout for example)
 
-        
-
         ep_infos = []
         rewbuffer = deque(maxlen=100)
         lenbuffer = deque(maxlen=100)
@@ -75,9 +66,6 @@ class OnPolicyRunner(runners.OnPolicyRunner):
 
         start_iter = self.current_learning_iteration
         tot_iter = start_iter + num_learning_iterations
-
-        
-
 
         for it in tqdm(range(start_iter, tot_iter)):
             start_collect = time.time()
@@ -188,22 +176,10 @@ class OnPolicyRunner(runners.OnPolicyRunner):
                 lenbuffer.clear()
 
 
-            #if (self.ckpt_every > 0) and (it % self.ckpt_every == 0):
-            #    model_path = os.path.join(self.log_dir, "models", f"model_{it}.pt")
-            #    os.makedirs(os.path.dirname(model_path), exist_ok=True)
-            #    # Use a background thread so `torch.save` cannot block main loop
-            #    threading.Thread(
-            #        target=torch.save,
-            #        args=(self.alg.policy.actor, model_path),
-            #        daemon=True,
-            #    ).start()
-            #ep_infos.clear()
-
             if (self.ckpt_every > 0) and (it % self.ckpt_every == 0):
                 model_dir = os.path.join(self.log_dir, "models")
                 os.makedirs(model_dir, exist_ok=True)
 
-                # 1) Save full actor model
                 full_model_path = os.path.join(model_dir, f"model_{it}.pt")
                 threading.Thread(
                     target=torch.save,
@@ -211,7 +187,6 @@ class OnPolicyRunner(runners.OnPolicyRunner):
                     daemon=True,
                 ).start()
 
-                # 2) Save only state_dict
                 state_dict_path = os.path.join(model_dir, f"model_{it}_state_dict.pt")
                 threading.Thread(
                     target=torch.save,

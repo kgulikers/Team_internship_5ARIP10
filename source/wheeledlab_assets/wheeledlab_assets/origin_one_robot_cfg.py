@@ -1,6 +1,3 @@
-
-
-
 import os
 
 from isaaclab.assets import ArticulationCfg
