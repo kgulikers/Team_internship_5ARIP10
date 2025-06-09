@@ -38,6 +38,14 @@ source install/setup.bash
 
 You will need to source the setup file every time you open a new terminal in the container.
 
+ROS 2 supports multiple DDS implementations via the ROS Middleware.
+
+The line:
+```bash
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+```
+forces ROS 2 to use CycloneDDS, ensuring compatibility with Avular’s internal DDS setup and the Zenoh bridge used to connect to the internal ROS 2 network of the Origin One.
+
 #### Running the ROS 2 node
 If you want to run or modify the velocity control node, edit the following file:
 ```bash
